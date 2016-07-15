@@ -57,9 +57,16 @@ class Assignment(models.Model):
 
 class Question(models.Model):
 	name = models.CharField(max_length=128)
+	# This is assuming that only Students can ask questions
+	# Please note that related_name is simply for display and does not affect the db in any given way
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Student')
 
 class Answer(models.Model):
+	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
 	name = models.CharField(max_length=128)
+	# Same comment Question.my_user applies here
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Provided By+')
+
 
 class Video(models.Model):
 	name = models.CharField(max_length=128)
