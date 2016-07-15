@@ -1,5 +1,78 @@
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+class LMS(models.Model):
+	name = models.CharField(max_length=128)
+	url = models.CharField(max_length=128)
+
+	class Meta:
+		verbose_name = 'Learning Management System'
+		verbose_name_plural = 'Learning Management Systems'
+
+	def __unicode__(self):
+		return self.name
+
+class LMS_Web_Service(models.Model):
+	web_service_name = models.CharField(max_length=128)
+	# depending on the options we might be able to do a choicefield here
+	web_service_method = models.CharField(max_length=128)
+	web_service_url = models.CharField(max_length=128)
+
+	class Meta:
+		verbose_name = 'LMS Web Service'
+		verbose_name_plural = 'LMS Web Services'
+
+	def __unicode__(self):
+		return self.web_service_name
+
+class School(models.Model):
+	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
+	name = models.CharField(max_length=128)
+	url = models.CharField(max_length=128)
+
+	def __unicode__(self):
+		return self.name
+
+# Not the most creative person. Please find a better name :)
+# Also depending on our needs (i.e. we might have to use a custom user model)
+class My_User(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	school = models.ForeignKey(School, on_delete=models.CASCADE)
+	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
+	email = models.CharField(max_length=128)
+
+class Class(models.Model):
+	school = models.ForeignKey(School, on_delete=models.CASCADE)
+	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Teacher')
+	name = models.CharField(max_length=128)
+	# based on our needs, this might be a choicefield
+	academic_year = models.IntegerField()
+	# based on our needs, this might be a choicefield, or even integer (wasn't sure of the options)
+	semester = models.CharField(max_length=128)
+
+class Assignment(models.Model):
+	name = models.CharField(max_length=128)
+
+class Question(models.Model):
+	name = models.CharField(max_length=128)
+
+class Answer(models.Model):
+	name = models.CharField(max_length=128)
+
+class Video(models.Model):
+	name = models.CharField(max_length=128)
+	location = models.CharField(max_length=128)
+
+class Video_Comment(models.Model):
+	video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='Student')
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Commenter')
+	# Actual lenght might have to be changed
+	comment = models.CharField(max_length=128)
+
+class Interview(models.Model):
+	name = models.CharField(max_length=128)
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Student')
+	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Professional')
+	date = models.DateTimeField()
