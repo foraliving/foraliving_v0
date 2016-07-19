@@ -88,6 +88,10 @@ class Video_Comment(models.Model):
 	# Actual lenght might have to be changed
 	comment = models.CharField(max_length=128)
 
+	class Meta:
+		verbose_name = 'Video Comment'
+		verbose_name_plural = 'Video Comments'
+
 class Interview(models.Model):
 	name = models.CharField(max_length=128)
 	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Student')
