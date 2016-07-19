@@ -1,3 +1,4 @@
+# Add documentation link
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
@@ -7,8 +8,8 @@ class LMS(models.Model):
 	url = models.CharField(max_length=128)
 
 	class Meta:
-		verbose_name = 'Learning Management System'
-		verbose_name_plural = 'Learning Management Systems'
+		verbose_name = 'LMS'
+		verbose_name_plural = 'LMS'
 
 	def __unicode__(self):
 		return self.name
@@ -42,6 +43,11 @@ class My_User(models.Model):
 	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
 	email = models.CharField(max_length=128)
 
+	class Meta:
+		verbose_name = 'FAL User'
+		verbose_name_plural = 'FAL Users'
+
+# TODO: Find out why there are 3 sss
 class Class(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
 	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
@@ -51,6 +57,10 @@ class Class(models.Model):
 	academic_year = models.IntegerField()
 	# based on our needs, this might be a choicefield, or even integer (wasn't sure of the options)
 	semester = models.CharField(max_length=128)
+
+	# class Meta:
+	# 	verbose_name = 'FAL Class'
+	# 	verbose_name_plural = 'FAL Classes'
 
 class Assignment(models.Model):
 	name = models.CharField(max_length=128)
