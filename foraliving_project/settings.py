@@ -32,13 +32,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foraliving',
-    'pinax_theme_bootstrap'
+    "account",
+    'pinax_theme_bootstrap',
+    'bootstrapform',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -49,7 +53,11 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "account.middleware.LocaleMiddleware",
+    "account.middleware.TimezoneMiddleware",
 ]
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'foraliving_project.urls'
 
@@ -64,6 +72,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "account.context_processors.account",
+                'django.core.context_processors.request',
+                'pinax_theme_bootstrap.context_processors.theme',
             ],
         },
     },

@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 *.pyc
+=======
+*.pyc
+*.egg-info
+dist
+>>>>>>> 6a0b70e10e5e667757a9d44ab5624c368d05776c
