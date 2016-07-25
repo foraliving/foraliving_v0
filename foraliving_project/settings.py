@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foraliving',
+    'pinax_theme_bootstrap'
 ]
 
 MIDDLEWARE_CLASSES = [
