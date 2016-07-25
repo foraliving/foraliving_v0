@@ -4,3 +4,4 @@
 	* please run the following commands before...:
 	  * pip install django-user-accounts
 	  * pip install pinax-theme-bootstrap
+	  * pip install metron

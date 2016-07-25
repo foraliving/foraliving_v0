@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "account",
     'pinax_theme_bootstrap',
     'bootstrapform',
-
+    'metron',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -64,7 +64,10 @@ ROOT_URLCONF = 'foraliving_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'pinax_theme_bootstrap/templates/'
+            # 'pinax_theme_bootstrap/templates/account'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
