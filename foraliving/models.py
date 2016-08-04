@@ -90,6 +90,14 @@ class Answer(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Interview(models.Model):
+	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
+	interviewee = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewee', )
+	date = models.DateTimeField()
+
+	def __unicode__(self):
+		return 'Interview of ' + str(interviewee) + ' by ' + str(interviewer)
+
 class Video(models.Model):
 	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
 	url = models.CharField(max_length=128)
@@ -114,11 +122,3 @@ class Video_Comment(models.Model):
 
 	def __unicode__(self):
 		return self.name
-
-class Interview(models.Model):
-	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
-	interviewee = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewee', )
-	date = models.DateTimeField()
-
-	def __unicode__(self):
-		return 'Interview of ' + str(interviewee) + ' by ' + str(interviewer)
