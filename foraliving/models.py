@@ -35,65 +35,90 @@ class School(models.Model):
 	def __unicode__(self):
 		return self.name
 
-# Not the most creative person. Please find a better name :)
-# Also depending on our needs (i.e. we might have to use a custom user model)
-class My_User(models.Model):
+class User_Add_Ons(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
+	# The user's ID w/in their LMS
 	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
-	email = models.CharField(max_length=128)
 
 	class Meta:
-		verbose_name = 'FAL User'
-		verbose_name_plural = 'FAL Users'
+		verbose_name = 'User Add-ons'
+		verbose_name_plural = 'User Add-ons'
 
-# TODO: Find out why there are 3 sss
+	def __unicode__(self):
+		return self.user
+
 class Class(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
 	lms = models.ForeignKey(LMS, on_delete=models.CASCADE)
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Teacher')
+	teacher = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
 	name = models.CharField(max_length=128)
-	# based on our needs, this might be a choicefield
 	academic_year = models.IntegerField()
-	# based on our needs, this might be a choicefield, or even integer (wasn't sure of the options)
 	semester = models.CharField(max_length=128)
 
-	# class Meta:
-	# 	verbose_name = 'FAL Class'
-	# 	verbose_name_plural = 'FAL Classes'
+	class Meta:
+		verbose_name = 'FAL Class'
+		verbose_name_plural = 'FAL Classes'
+
+	def __unicode__(self):
+		return self.name
 
 class Assignment(models.Model):
 	name = models.CharField(max_length=128)
+	teacher = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Teacher')
+	document = models.CharField(max_length=128)
+	due_date = models.DateTimeField()
+	creation_date = models.DateTimeField()
+
+	def __unicode__(self):
+		return self.name
 
 class Question(models.Model):
 	name = models.CharField(max_length=128)
-	# This is assuming that only Students can ask questions
-	# Please note that related_name is simply for display and does not affect the db in any given way
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Student')
+	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
+	creation_date = models.DateTimeField()
+
+	def __unicode__(self):
+		return self.name
 
 class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
 	name = models.CharField(max_length=128)
-	# Same comment Question.my_user applies here
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Provided By+')
+	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
+	creation_date = models.DateTimeField()
 
+	def __unicode__(self):
+		return self.name
+
+class Interview(models.Model):
+	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
+	interviewee = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewee', )
+	date = models.DateTimeField()
+
+	def __unicode__(self):
+		return 'Interview of ' + str(interviewee) + ' by ' + str(interviewer)
 
 class Video(models.Model):
-	name = models.CharField(max_length=128)
-	location = models.CharField(max_length=128)
+	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
+	url = models.CharField(max_length=128)
+	tags = models.CharField(max_length=128)
+	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
+	creation_date = models.DateTimeField()
+
+	def __unicode__(self):
+		return 'self.name'
+	
 
 class Video_Comment(models.Model):
 	video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='Student')
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Commenter')
-	# Actual lenght might have to be changed
+	my_user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Commenter')
 	comment = models.CharField(max_length=128)
+	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
+	creation_date = models.DateTimeField()
 
 	class Meta:
 		verbose_name = 'Video Comment'
 		verbose_name_plural = 'Video Comments'
 
-class Interview(models.Model):
-	name = models.CharField(max_length=128)
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Student')
-	my_user = models.ForeignKey(My_User, on_delete=models.CASCADE, related_name='Professional')
-	date = models.DateTimeField()
+	def __unicode__(self):
+		return self.name
