@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from foraliving import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^foraliving/', include('foraliving.urls')),
     url(r"^account/", include("account.urls")),
+    url(r"^$", views.index, name="home"),
+    # url(r'^$', views.home, name='home'),
 ]
