@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^foraliving/', include('foraliving.urls')),
     url(r"^account/", include("account.urls")),
     url(r"^$", views.index, name="home"),
+    url(r"^theme/", views.sitetheme, name='theme'),
     # url(r'^$', views.home, name='home'),
 ]

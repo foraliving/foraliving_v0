@@ -18,3 +18,6 @@ def index(request):
 
 def twopage(request):
 	return render(request,'home.html') 
+
+def sitetheme(request):
+	return render(request,'FAL_Theme.html') 
