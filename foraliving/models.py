@@ -35,6 +35,7 @@ class School(models.Model):
 	def __unicode__(self):
 		return self.name
 
+
 class User_Add_Ons(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -47,6 +48,18 @@ class User_Add_Ons(models.Model):
 
 	def __unicode__(self):
 		return self.user
+
+class Group(models.Model):
+	name = models.CharField(max_length=128)
+
+class User_Group_Map(models.Model):
+	# group = 
+	user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE)
+	# To be defined
+	# roles = (
+	# 	(''),
+	# 	(''),)
+	# user_role =  models.CharField(max_length=1, choices=roles)
 
 class Class(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -122,3 +135,7 @@ class Video_Comment(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+# def Assignment_Submission:
+# 	name = models.CharField(max_length=128)
+# 	group = 
