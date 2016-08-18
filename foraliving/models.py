@@ -1,6 +1,6 @@
 # Add documentation link
 from __future__ import unicode_literals
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.db import models
 
 class LMS(models.Model):
@@ -76,15 +76,14 @@ class Class(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class Assignment(models.Model):
-	name = models.CharField(max_length=128)
-	teacher = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Teacher')
-	document = models.CharField(max_length=128)
-	due_date = models.DateTimeField()
-	creation_date = models.DateTimeField()
+class Interview(models.Model):
+	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
+	interviewee = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewee', )
+	group = models.ForeignKey(Group)
+	date = models.DateTimeField()
 
 	def __unicode__(self):
-		return self.name
+		return 'Interview of ' + str(interviewee) + ' by ' + str(interviewer)
 
 class Question(models.Model):
 	name = models.CharField(max_length=128)
@@ -94,6 +93,10 @@ class Question(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class Interview_Question_Map(models.Model):
+	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, )
+	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
+	
 class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
 	name = models.CharField(max_length=128)
@@ -102,14 +105,6 @@ class Answer(models.Model):
 
 	def __unicode__(self):
 		return self.name
-
-class Interview(models.Model):
-	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
-	interviewee = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewee', )
-	date = models.DateTimeField()
-
-	def __unicode__(self):
-		return 'Interview of ' + str(interviewee) + ' by ' + str(interviewer)
 
 class Video(models.Model):
 	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
@@ -120,10 +115,17 @@ class Video(models.Model):
 
 	def __unicode__(self):
 		return 'self.name'
-	
+
+class Question_Video_Map(models.Model):
+	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
+	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
+
+class Interview_Question_Video_Map(models.Model):
+	interview_question = models.ForeignKey(Question_Video_Map, on_delete=models.CASCADE, )
+	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
 
 class Video_Comment(models.Model):
-	video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='Student')
+	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
 	my_user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Commenter')
 	comment = models.CharField(max_length=128)
 	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
@@ -136,6 +138,20 @@ class Video_Comment(models.Model):
 	def __unicode__(self):
 		return self.name
 
-# def Assignment_Submission:
-# 	name = models.CharField(max_length=128)
-# 	group = 
+class Assignment(models.Model):
+	name = models.CharField(max_length=128)
+	teacher = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Teacher')
+	document = models.CharField(max_length=128)
+	due_date = models.DateTimeField()
+	creation_date = models.DateTimeField()
+
+	def __unicode__(self):
+		return self.name
+
+def Assignment_Submission(models.Model):
+	name = models.CharField(max_length=128)
+	group = models.ForeignKey(Group)
+
+def Submission_Interview_Map(models.Model):
+	submission = models.ForeignKey(Assignment_Submission, on_delete=models.CASCADE, )
+	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, )
