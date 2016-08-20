@@ -35,7 +35,6 @@ class School(models.Model):
 	def __unicode__(self):
 		return self.name
 
-
 class User_Add_Ons(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -49,17 +48,17 @@ class User_Add_Ons(models.Model):
 	def __unicode__(self):
 		return self.user
 
-class Group(models.Model):
-	name = models.CharField(max_length=128)
-
-class User_Group_Map(models.Model):
-	# group = 
+class User_Group_Role_Map(models.Model):
+	group = models.ForeignKey(Group) 
 	user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE)
-	# To be defined
-	# roles = (
-	# 	(''),
-	# 	(''),)
-	# user_role =  models.CharField(max_length=1, choices=roles)
+	role = models.CharField(max_length=128)
+
+	class Meta:
+		verbose_name = 'Role'
+		verbose_name_plural = 'Roles'
+
+	def __unicode__():
+		return str(self.group) + ': ' + str(self.user) + '-' + str(self.role)
 
 class Class(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
@@ -96,10 +95,17 @@ class Question(models.Model):
 class Interview_Question_Map(models.Model):
 	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, )
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
+
+	class Meta:
+		verbose_name = 'Interview Question'
+		verbose_name_plural = 'Interview Questions'
+
+	def __unicode__(self):
+		return self.name
 	
 class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
-	name = models.CharField(max_length=128)
+	result = models.CharField(max_length=128)
 	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
 	creation_date = models.DateTimeField()
 
@@ -107,7 +113,7 @@ class Answer(models.Model):
 		return self.name
 
 class Video(models.Model):
-	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
+	# interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
 	url = models.CharField(max_length=128)
 	tags = models.CharField(max_length=128)
 	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
@@ -120,13 +126,26 @@ class Question_Video_Map(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
 	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
 
+	class Meta:
+		verbose_name = 'Video Question'
+		verbose_name_plural = 'Video Questions'
+
+	def __unicode__():
+		return str(self.question) + ':' + str(self.video)
+
 class Interview_Question_Video_Map(models.Model):
 	interview_question = models.ForeignKey(Question_Video_Map, on_delete=models.CASCADE, )
 	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
 
+	class Meta:
+		verbose_name = 'Interview Question Video'
+		verbose_name_plural = 'Interview Video Questions'
+
+	def __unicode__():
+		return str(self.interview_question) + '-' + str(self.video)
+
 class Video_Comment(models.Model):
 	video = models.ForeignKey(Video, on_delete=models.CASCADE, )
-	my_user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Commenter')
 	comment = models.CharField(max_length=128)
 	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
 	creation_date = models.DateTimeField()
@@ -139,8 +158,8 @@ class Video_Comment(models.Model):
 		return self.name
 
 class Assignment(models.Model):
-	name = models.CharField(max_length=128)
-	teacher = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='Teacher')
+	title = models.CharField(max_length=128)
+	falClass = models.ForeignKey(Class, on_delete=models.CASCADE)
 	document = models.CharField(max_length=128)
 	due_date = models.DateTimeField()
 	creation_date = models.DateTimeField()
@@ -148,10 +167,24 @@ class Assignment(models.Model):
 	def __unicode__(self):
 		return self.name
 
-def Assignment_Submission(models.Model):
+class Assignment_Submission(models.Model):
 	name = models.CharField(max_length=128)
 	group = models.ForeignKey(Group)
 
-def Submission_Interview_Map(models.Model):
+	class Meta:
+		verbose_name = 'Submission'
+		verbose_name_plural = 'Submissions'
+
+	def __unicode__(self):
+		return str(self.group) + ':' + str(self.name)
+
+class Submission_Interview_Map(models.Model):
 	submission = models.ForeignKey(Assignment_Submission, on_delete=models.CASCADE, )
 	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, )
+
+	class Meta:
+		verbose_name = 'Interview Submission'
+		verbose_name_plural = 'Interview Submissions'
+
+	def __unicode__(self):
+		return str(self.submission) + ':' + str(self.interview)
