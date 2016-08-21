@@ -32,14 +32,21 @@
                 <header>
                     <div class="navbar navbar-default {% block navbar_class %}navbar-fixed-top{% endblock %}">
                         <div class="container">
+
+                        
                         {% block topbar %}
                             <div class="navbar-header">
                                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="fa fa-bars"></span>
                                 </button>
+                                <div>
                                 {% block site_brand %}<a class="navbar-brand" href="{% url "home" %}"><img border="0" alt="site logo" src="{% static 'img/logoT.png' %}" ></a>{% endblock %}
+                                </div>
                             </div>
+
+
                             <div class="collapse navbar-collapse navbar-responsive-collapse">
+
                                 {% block nav %}
                                     {% comment %}
                                         <ul class="nav navbar-nav">
