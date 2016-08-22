@@ -30,22 +30,25 @@
 
             {% block topbar_base %}
                 <header>
-                    <div class="navbar navbar-default {% block navbar_class %}navbar-fixed-top{% endblock %}">
-                        <div class="container">
+                    <div   class="navbar navbar-default {% block navbar_class %}navbar-fixed-top{% endblock %}">
 
-                        
-                        {% block topbar %}
-                            <div class="navbar-header">
+                        <div class="navbar-header" style=" padding-bottom: 20px; >
                                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="fa fa-bars"></span>
                                 </button>
                                 <div>
-                                {% block site_brand %}<a class="navbar-brand" href="{% url "home" %}"><img border="0" alt="site logo" src="{% static 'img/logoT.png' %}" ></a>{% endblock %}
+                                {% block site_brand %}<a class="navbar-brand" style=" padding-bottom: 20px; href="{% url "home" %}"><img border="0" alt="site logo" src="{% static 'img/logoT.png' %}" ></a>{% endblock %}
                                 </div>
-                            </div>
+                        </div>
+
+                        <div class="container">
 
 
-                            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                        {% block topbar %}
+                            
+
+
+                            <div class="collapse navbar-collapse navbar-responsive-collapse" style=" margin: 14px; " >
 
                                 {% block nav %}
                                     {% comment %}
