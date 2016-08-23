@@ -42,10 +42,10 @@
           #first-row {
 
           	position: absolute;
-          	left: 55px;
-          	right: 45px;
+          	left: 5px;
+          	right: 5px;
 
-          	width: 90%;
+          	width: 95%;
           	padding-top: 55px;
        		
 
@@ -58,15 +58,20 @@
           	padding-bottom: 15px;
           }
 
-		 @media only screen and (max-device-width: 800px),  
-		 only screen and (device-width:1024px) and (device-height: 600px), only screen 
+          
 
-		 and (width: 1280px) and (orientation: landscape), only screen 
+			
 
-		 and (device-width: 800px), only screen and (max-width: 767px) {
+			 @media only screen and (max-device-width: 800px),  
+			 only screen and (device-width:1024px) and (device-height: 600px), only screen 
 
-		 .flex-video { padding-top: 0; }
-  		 }
+			 and (width: 1280px) and (orientation: landscape), only screen 
+
+			 and (device-width: 800px), only screen and (max-width: 767px) {
+
+			 .flex-video { padding-top: 0; }
+	  		 }
+
 	</style>
 </header>
 
@@ -76,15 +81,15 @@
 			<p>&nbsp;</p>
 
 			
-			<span class="row">
+			<span class="row" style="margin: 40px;">
 					<span class="col-sm-8">
 
-						<div class="hidden-xs" style="  font-size:30pt; color: #5da4d2;" align="left">Welcome Pilot Teachers!</div>
+						<div id="size-change" class="hidden-xs" style="  font-size:30pt; color: #5da4d2;" align="left">Welcome Pilot Teachers!</div>
 			
-						<div class="visible-xs-inline" style=" text-align: center;  font-size:20pt; color: #5da4d2;" ><br>&nbsp;&nbsp;&nbsp;&nbsp;Welcome Pilot Teachers!<br></div><br>
+						<div class="visible-xs-inline" style=" text-align: center;  font-size:18pt; color: #5da4d2;" ><br>&nbsp;&nbsp;&nbsp;&nbsp;Welcome Pilot Teachers!<br></div><br>
 
-						<p style="color: #333333; font-size:18pt;">We are excited about starting this pilot with you so that together we can design the best school driven solution fot building a community focused on providing students with an early start for finding their place in the world.</p>
-						<p style="color: #333333; font-size:18pt;" >We believe if youth have opportunites to learn about the expectations of the workplace and the variety of careers available, they make better decisions about college, how much college debt to take on and will have fewer struggles finding work. It is our experience that many adults are very willing to help students in this process and will share their career experiences, given a viable process for doing so. Be assured that student safety is our top priority and we look forward to working with you to create a strong safety process.</p>
+						<p style="color: #333333; font-size: 1.6vw;">We are excited about starting this pilot with you so that together we can design the best school driven solution fot building a community focused on providing students with an early start for finding their place in the world.</p>
+						<p style="color: #333333; font-size: 1.6vw;" >We believe if youth have opportunites to learn about the expectations of the workplace and the variety of careers available, they make better decisions about college, how much college debt to take on and will have fewer struggles finding work. It is our experience that many adults are very willing to help students in this process and will share their career experiences, given a viable process for doing so. Be assured that student safety is our top priority and we look forward to working with you to create a strong safety process.</p>
 					</span>
 
 					<span class="col-sm-4">
@@ -110,7 +115,7 @@
 		
 			<!-- Modal view inspired by: 
 			http://www.tutorialrepublic.com/faq/how-to-embed-youtube-video-inside-bootstrap-modal.php -->
-			<div class="container-fluid" style="font-family: Arial, Helvetica, sans-serif; margin:auto; margin-right: 4px; margin-left: 4px; ">
+			<div class="container-fluid" style="font-family: Arial, Helvetica, sans-serif; padding: 30px; margin:auto; margin-right: 4px; margin-left: 4px; ">
 
 				<!--<div class="row">
 
@@ -229,12 +234,13 @@
  				</div>-->
 
 				<div class="row">
-				
+
 					<br><br>
-					<div style=" font-size:30pt; color: #5da4d2;">
+					<div  id="size-change" style=" font-size:30pt; color: #5da4d2;">
 						&nbsp; Example videos created by the For A Living team
 					</div>
 
+				
 					<div class="col-lg-3 col-sm-6">
 
 						<div class="thumbnails">
