@@ -17,7 +17,7 @@
 
 	<style type="text/css">
 			
-			 .flex-video {
+			.flex-video {
           position: relative;
           padding-top: 25px;
           padding-bottom: 67.5%;
@@ -41,7 +41,13 @@
 
           #first-row {
 
-          	padding: 50px;
+          	position: absolute;
+          	left: 55px;
+          	right: 45px;
+
+          	width: 90%;
+          	padding-top: 55px;
+       		
 
           }
 
@@ -49,27 +55,28 @@
           	font-family: Arial, Helvetica, sans-serif; 
           	background-color: #E0E0E0; 
           	width: 90%;
+          	padding-bottom: 15px;
           }
 
- @media only screen and (max-device-width: 800px),  
- only screen and (device-width:1024px) and (device-height: 600px), only screen 
+		 @media only screen and (max-device-width: 800px),  
+		 only screen and (device-width:1024px) and (device-height: 600px), only screen 
 
- and (width: 1280px) and (orientation: landscape), only screen 
+		 and (width: 1280px) and (orientation: landscape), only screen 
 
- and (device-width: 800px), only screen and (max-width: 767px) {
+		 and (device-width: 800px), only screen and (max-width: 767px) {
 
- .flex-video { padding-top: 0; }
-   }
-
-		</style>
-
+		 .flex-video { padding-top: 0; }
+  		 }
+	</style>
 </header>
+
 	<div id="first-row" class="container-fluid" style="  ">
+
 		<div id="grey" class="container" style="  " >
 			<p>&nbsp;</p>
 
 			
-				<span class="row">
+			<span class="row">
 					<span class="col-sm-8">
 
 						<div class="hidden-xs" style="  font-size:30pt; color: #5da4d2;" align="left">Welcome Pilot Teachers!</div>
@@ -86,7 +93,7 @@
 				         		<div class="thumbnail" style="  border: 1px solid #5da4d2 ; ">
 
 					                <div class="flex-video widescreen ">                  
-					                  <iframe  src="https://www.youtube.com/embed/htOroIbxiFY" frameborder="0" allowfullscreen></iframe>
+					                  <iframe  src="https://www.youtube.com/embed/htOroIbxiFY?rel=0" frameborder="0" allowfullscreen></iframe>
 					                </div>   
 
 
@@ -99,27 +106,24 @@
 				         	 </div>
 			       		 </div>	
 					</span>
-				</span>
+			</span>
 		
 			<!-- Modal view inspired by: 
 			http://www.tutorialrepublic.com/faq/how-to-embed-youtube-video-inside-bootstrap-modal.php -->
 			<div class="container-fluid" style="font-family: Arial, Helvetica, sans-serif; margin:auto; margin-right: 4px; margin-left: 4px; ">
 
-				<div class="row">
+				<!--<div class="row">
 
-					<br><br>
-					<div style=" font-size:30pt; color: #5da4d2;">
-						&nbsp; Example videos created by the For A Living team
-					</div>
+					
 
 						<div class="col-sm-4">
-							<div class="thumbnail">
+							<div class="thumbnail">-->
 								<!-- Button HTML (to Trigger Modal) -->
-								<button type="button" class="btn btn-default btn-lg">
+								<!--<button type="button" class="btn btn-default btn-lg">
 								    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-								</button>
+								</button>-->
 								<!-- Modal HTML -->
-								<div id="myModal" class="modal fade">
+								<!--<div id="myModal" class="modal fade">
 								    <div class="modal-dialog">
 								        <div class="modal-content">
 								            <div class="modal-header">
@@ -127,7 +131,7 @@
 								                <h4 class="modal-title">YouTube Video</h4>
 								            </div>
 								            <div class="modal-body">
-								                <iframe src="https://drive.google.com/file/d/0BxCxtGid6VF8bnMzMUNMTnN2bDQ/preview" width="560" height="315"></iframe>
+								                <iframe src="https://drive.google.com/file/d/0BxCxtGid6VF8bnMzMUNMTnN2bDQ/previewrel=0" width="560" height="315"></iframe>
 								            </div>
 								        </div>
 								    </div>
@@ -150,13 +154,13 @@
 							</div>
 						</div>
 					<div class="col-sm-4">
-						<div class="thumbnail">
+						<div class="thumbnail">-->
 							<!-- Button HTML (to Trigger Modal) -->
-							<button type="button" class="btn btn-default btn-lg">
+							<!--<button type="button" class="btn btn-default btn-lg">
 							    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-							</button>
+							</button>-->
 							<!-- Modal HTML -->
-							<div id="myModal" class="modal fade">
+							<!--<div id="myModal" class="modal fade">
 							    <div class="modal-dialog">
 							        <div class="modal-content">
 							            <div class="modal-header">
@@ -187,13 +191,13 @@
 						</div>
 					</div>
 					<div class="col-sm-4">
-						<div class="thumbnail">
+						<div class="thumbnail">-->
 							<!-- Button HTML (to Trigger Modal) -->
-							<button type="button" class="btn btn-default btn-lg">
+							<!--<button type="button" class="btn btn-default btn-lg">
 							    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-							</button>
+							</button>--
 							<!-- Modal HTML -->
-							<div id="myModal" class="modal fade">
+							<!--<div id="myModal" class="modal fade">
 							    <div class="modal-dialog">
 							        <div class="modal-content">
 							            <div class="modal-header">
@@ -201,7 +205,7 @@
 							                <h4 class="modal-title">YouTube Video</h4>
 							            </div>
 							            <div class="modal-body">
-							                <iframe id="cartoonVideo" width="560" height="315" src="https://drive.google.com/file/d/0BxCxtGid6VF8Y0djTTdPdV9OdG8/preview" frameborder="0" allowfullscreen></iframe>
+							                <iframe id="cartoonVideo" width="560" height="315" src="https://drive.google.com/file/d/0BxCxtGid6VF8Y0djTTdPdV9OdG8/preview?rel=0" frameborder="0" allowfullscreen></iframe>
 							            </div>
 							        </div>
 							    </div>
@@ -222,10 +226,14 @@
 							</div>
 						</div>
 					</div>
- 					
-				</div>
+ 				</div>-->
 
 				<div class="row">
+				
+					<br><br>
+					<div style=" font-size:30pt; color: #5da4d2;">
+						&nbsp; Example videos created by the For A Living team
+					</div>
 
 					<div class="col-lg-3 col-sm-6">
 
@@ -236,7 +244,7 @@
 
 					                <div class="flex-video widescreen ">
 					                  
-					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/uaoqDrNuOsk" frameborder="0" allowfullscreen></iframe>
+					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/uaoqDrNuOsk?rel=0" frameborder="0" allowfullscreen></iframe>
 					                </div>   
 
 					              <div class="caption">
@@ -255,34 +263,6 @@
 				         		</div>
 				         	</div>
 				         </div>
-									<!--<div class="thumbnail">
-										<a href="https://youtu.be/EqWRaAF6_WY">
-											<div style="padding: 48px;  margin: 3%;  " >
-												<img  src="..." alt="videos">
-											</div>
-										</a>
-
-											<div class="caption" style="">
-												<p>
-													<strong>
-														Arthor <br>
-														Program Manager<br>
-													</strong>
-													recorded July 9, 2016<br>
-													recorded by mzz<br>
-													2.15 minutes
-
-												</p>
-
-												<p>
-													<a href="#"></a>
-
-												</p>
-
-											</div>
-
-									</div>-->
-					
 					</div>
 
 
@@ -295,7 +275,7 @@
 
 					                <div class="flex-video widescreen ">
 					                  
-					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Hhiaht8Zu0M" frameborder="0" allowfullscreen></iframe>
+					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Hhiaht8Zu0M?rel=0" frameborder="0" allowfullscreen></iframe>
 					                </div>   
 
 					                
@@ -315,93 +295,36 @@
 				         		</div>
 				         	</div>
 				        </div>
-
-
-						<!--<div class="thumbnail">
-							<a href="https://youtu.be/am3iGHDnJHc">
-												<div style="padding: 48px;  margin: 3%;  " >
-													<img  src="..." alt="videos">
-												</div>
-							</a>
-							<div class="caption" style="">
-								<p>
-									<strong>
-										Keneth <br>
-										Web Developer <br>
-									</strong>
-									recorded July 9, 2016<br>
-									recorded by mzz<br>
-									3.04 minutes
-
-								</p>
-								<p>
-									<a href="#"></a>
-
-								</p>
-
-							</div>
-						</div>-->
 					</div>
 					
 
 					<div class="col-lg-3 col-sm-6"  >
-
-					
-
-					<div class="thumbnails">
-				         	<div class="span4">
-				         		<div class="thumbnail" >
+						<div class="thumbnails">
+					         	<div class="span4">
+					         		<div class="thumbnail" >
 
 
-					                <div class="flex-video widescreen ">
-					                  
-					                 <iframe width="560" height="315" src="https://www.youtube.com/embed/VKAkC_yilvc" frameborder="0" allowfullscreen></iframe>
-					                </div>   
+						                <div class="flex-video widescreen ">
+						                  
+						                 <iframe width="560" height="315" src="https://www.youtube.com/embed/VKAkC_yilvc?rel=0" frameborder="0" allowfullscreen></iframe>
+						                </div>   
 
-					                
-					              <div class="caption">
-					                
-					              
-										<strong style=" font-size: 18pt; color: #808060; ">
-											Jacquie <br>
-											User Experieence Manager<br>
-										</strong>
-										<span style=" font-size: 13pt; color: #808060; ">
-											recorded August 14, 2016<br>								
-											1:53 minutes					
-										</span>						               
-					              </div>
-				         		</div>
-				         	</div>
-				    </div>
-
-
-
-						<!--<div class="thumbnail">
-							<a href="https://youtu.be/9IclmVdWNbI">
-								<div style="padding: 48px;  margin: 3%;  " >
-									<img  src="..." alt="videos">
-								</div>
-							</a>
-							
-							<div class="caption" style="">
-								<p>
-															<strong>
-																Bruce <br>
-																Program Manager<br>
-															</strong>
-															recorded July 9, 2016<br>
-															recorded by mzz<br>
-															2.15 minutes
-
-								</p>
-								<p>
-									<a href="#"></a>
-
-								</p>
-
-							</div>
-						</div>-->
+						                
+						              <div class="caption">
+						                
+						              
+											<strong style=" font-size: 18pt; color: #808060; ">
+												Jacquie <br>
+												User Experieence Manager<br>
+											</strong>
+											<span style=" font-size: 13pt; color: #808060; ">
+												recorded August 14, 2016<br>								
+												1:53 minutes					
+											</span>						               
+						              </div>
+					         		</div>
+					         	</div>
+					    </div>
 					</div>
 
 					<div class="col-lg-3 col-sm-6">
@@ -413,7 +336,7 @@
 
 					                <div class="flex-video widescreen ">
 					                  
-					                 <iframe width="560" height="315" src="https://www.youtube.com/embed/IKa1JwB-32o" frameborder="0" allowfullscreen></iframe>
+					                 <iframe width="560" height="315" src="https://www.youtube.com/embed/IKa1JwB-32o?rel=0" frameborder="0" allowfullscreen></iframe>
 					                </div>   
 
 					                
@@ -432,167 +355,151 @@
 				         		</div>
 				         	</div>
 				    </div>
+				</div>		
 
-						<!--<div class="thumbnail">
-													<a href="https://youtu.be/hrzN1JBmscA">
-														<div style="padding: 48px;  margin: 3%;  " >
-															<img  src="..." alt="videos">
-														</div>
-													</a>
-													<div class="caption" style="">
-															<p>
-																<strong>
-																	Barry <br>
-																	Program Manager<br>
-																</strong>
-																recorded July 9, 2016<br>
-																recorded by mzz<br>
-																2.15 minutes
+				<div class="row" style=" padding: 15px; ">
 
-															</p>
-															<p>
-																<a href="#"></a>
+						<div class="col-lg-3 col-sm-6">
 
-															</p>
-
-													</div>
-
-						</div>
-					</div>-->
-
-				</div>
-				
+							<div class="thumbnails">
+					         	<div class="span4">
+					         		<div class="thumbnail" >
 
 
-				<div class="row">
+						                <div class="flex-video widescreen ">
+						                  
+						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/wQba5McvsA0?rel=0" frameborder="0" allowfullscreen></iframe>
+						                </div>   
 
-												<div class="col-lg-3 col-sm-6">
-													<div class="thumbnail">
-														<a href="https://youtu.be/6qF_fzEI4wU">
-															<div style="padding: 48px;  margin: 3%;  " >
-																<img  src="..." alt="videos">
-															</div>
-														</a>
-															<div class="caption" style="">
-																<p>
-																	<strong>
-																		Clark <br>
-																		Program Manager<br>
-																	</strong>
-																	recorded July 9, 2016<br>
-																	recorded by mzz<br>
-																	2.15 minutes
-
-																</p>
-																<p>
-																	<a href="#"></a>
-
-																</p>
-
-															</div>
-
-													</div>
-												</div>
+						                
+						              <div class="caption">
+						                
+						              
+											<strong style=" font-size: 18pt; color: #808060; ">
+												Jenna <br>
+												User Experieence Manager<br>
+											</strong>
+											<span style=" font-size: 13pt; color: #808060; ">
+												recorded August 14, 2016<br>
+												
+												4:01 minutes
+											</span>								               
+						              </div>
+					         		</div>
+					         	</div>
+					        </div>
+					    </div>
 
 
-												<div class="col-lg-3 col-sm-6">
-														<div class="thumbnail">
-															<a href="https://youtu.be/am3iGHDnJHc">
-																<div style="padding: 48px;  margin: 3%;  " >
-																	<img  src="..." alt="videos">
-																</div>
-															</a>
-																<div class="caption" style="">
-																	<p>
-																		<strong>
-																			Jason <br>
-																			Web Developer <br>
-																		</strong>
-																		recorded July 9, 2016<br>
-																		recorded by mzz<br>
-																		3.04 minutes
+						<div class="col-lg-3 col-sm-6">
 
-																	</p>
-																	<p>
-																		<a href="#"></a>
+							<div class="thumbnails">
+					         	<div class="span4">
+					         		<div class="thumbnail" >
 
-																	</p>
 
-																</div>
-														</div>
-												</div>
+						                <div class="flex-video widescreen ">
+						                  
+						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/ItjZeIzkHP4?rel=0" frameborder="0" allowfullscreen></iframe>
+						                </div>   
+
+						                
+						              <div class="caption">
+						                
+						              
+											<strong style=" font-size: 18pt; color: #808060; ">
+												Jenna <br>
+												User Experieence Manager<br>
+											</strong>
+											<span style=" font-size: 13pt; color: #808060; ">
+												recorded August 14, 2016<br>
+												
+												1:24 minutes
+											</span>								               
+						              </div>
+					         		</div>
+					         	</div>
+					        </div>
+					    </div>
 
 
 
-												<div class="col-lg-3 col-sm-6">
-															<div class="thumbnail">
-																<a href="https://youtu.be/MU3pdikir3U">
-																	<div style="padding: 48px;  margin: 3%;  " >
-																		<img  src="..." alt="videos">
-																	</div></a>
-																	<div class="caption" style="">
-																		<p>
-																			<strong>
-																				Diana <br>
-																				Program Manager<br>
-																			</strong>
-																			recorded July 9, 2016<br>
-																			recorded by mzz<br>
-																			2.15 minutes
+						<div class="col-lg-3 col-sm-6">
 
-																		</p>
-																		<p>
-																			<a href="#"></a>
-
-																		</p>
-
-																	</div>
-
-															</div>
-												</div>
+							<div class="thumbnails">
+					         	<div class="span4">
+					         		<div class="thumbnail" >
 
 
-												<div class="col-lg-3 col-sm-6">
-																<div class="thumbnail">
-																	<a href="https://youtu.be/LWEHxR6_TQ4">
-																		<div style="padding: 48px;  margin: 3%;  " >
-																			<img  src="..." alt="videos">
-																		</div></a>
-																		<div class="caption" style="">
-																			<p>
-																				<strong>
-																					Victor <br>
-																					Program Manager<br>
-																				</strong>
-																				recorded July 9, 2016<br>
-																				recorded by mzz<br>
-																				2.15 minutes
+						                <div class="flex-video widescreen ">
+						                  
+						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/grzRsvClUJo?rel=0" frameborder="0" allowfullscreen></iframe>
+						                </div>   
 
-																			</p>
-																			<p>
-																				<a href="#"></a>
+						                
+						              <div class="caption">
+						                
+						              
+											<strong style=" font-size: 18pt; color: #808060; ">
+												Jenna <br>
+												User Experieence Manager<br>
+											</strong>
+											<span style=" font-size: 13pt; color: #808060; ">
+												recorded August 14, 2016<br>
+												
+												1:15 minutes
+											</span>								               
+						              </div>
+					         		</div>
+					         	</div>
+					        </div>
+					    </div>
 
-																			</p>
 
-																		</div>
+						<div class="col-lg-3 col-sm-6">
+
+							<div class="thumbnails">
+					         	<div class="span4">
+					         		<div class="thumbnail" >
 
 
+						                <div class="flex-video widescreen ">
+						                  
+						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/chog9N9lE9E?rel=0" frameborder="0" allowfullscreen></iframe>
+						                </div>   
 
-																</div>
-												</div>
-				</div>
-
+						                
+						              <div class="caption">
+						                
+						              
+											<strong style=" font-size: 18pt; color: #808060; ">
+												Jenna <br>
+												User Experieence Manager<br>
+											</strong>
+											<span style=" font-size: 13pt; color: #808060; ">
+												recorded August 14, 2016<br>
+												
+												1:24 minutes
+											</span>								               
+						              </div>
+					         		</div>
+					         	</div>
+					        </div>
+					    </div>
+				</div>	
 			</div>
+
+		</div>
 
 
 			<div id ="upload_table">
-			<div>
-				<a href="#"></a>
-			</div>	
+				<div>
+					<a href="#"></a>
+				</div>	
 			</div>
-		</div>
-
 	</div>
+
+	
 
 	
 {% endblock %}
