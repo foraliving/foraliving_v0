@@ -1,130 +1,413 @@
 
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href="css/bootstrap.icon-large.min.css" rel="stylesheet">
+<meta name="description" content="Glyphicon support for Twitter's Bootstrap">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<body style=" background-color: #F6F6F6; padding: 20px; ">
-<div class="container-fluid" >
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header" style="">
-      <!--<a class="navbar-brand" href="#">-->
-        <img alt="Brand"  src="https://lh4.googleusercontent.com/aLSrkmUSb-CgRc94h_WiyLmwu7GJn21Zve8Q7CSCiEnqmZIPlsrRYVj_fLo3H3SLRHi_j4QF9L-QIA=w1600-h766-rw">
-      <!--</a>-->
-    </div>
-  </div>
-</nav>
-	<div class="row" >
-	
-		<div class="col-sm-5" style="  border: 1px solid #E8E8E8 ;  background-color: #FFFFFF;">
-
-		<script type="text/javascript">
-				
-				$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-					e.target('home') // newly activated tab
-		 			e.relatedTarget('profile') // previous active tab
-				})		
+		<link rel="stylesheet" href="http://cssdeck.com/assets/css/labs/app-66df569899d28c442f897ea972ee822e.css">
 
 
-				$('ques').click(function (e){
-					e.preventDefault()
-					$(this).tab('show')
-				})
-			</script>
+		<head>
+		<style type="text/css">
 
+		.squaredTwo {
+			width: 28px;
+			height: 28px;
+			background: #fcfff4;
 
-	
+		}
+
+		.squaredTwo label {
+				cursor: pointer;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				left: 4px;
+				top: 4px;
+			}
+
+		#checkbox1	input{
+			border: 2px solid blue;
 
 
 
-			<ul class="nav nav-tabs" role="tablist" >
-			  <li  role="presentation" class="active" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab" >QUESTION</a>
-			  
-			  	<!--<div class="clearfix">
-					<div class="">
-						<span class="glyphicon glyphicon-star-emptye"></span>
+		}	
 
-				hey
-				
+		.squaredTwo label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 4px;
+	left: 4px;
+	border: 3px solid #fcfff4;
+	border-top: none;
+	border-right: none;
+}
+
+.squaredTwo label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.squaredTwo input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+
+
+
+
+		</style>
+		</head>
+		
+
+
+
+
+<body style=" background-color: #F6F6F6; padding: 10px; ">
+
+
+	<!--<header>
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <div class="container">
+                        
+                            <div class="navbar-header">
+                                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="fa fa-bars"></span>
+                                </button>
+                                <a class="navbar-brand" href="/"><img border="0" alt="site logo" src="/static/img/logoT.png"></a>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                                
+                                    
+                                
+                                
+
+
+<ul class="nav navbar-nav navbar-right">
+    
+        <li><a href="/account/login/">Log in</a></li>
+        
+            <li><a href="/account/signup/">Sign up</a></li>
+        
+    
+</ul>
+
+<form id="accountLogOutForm" style="display: none;" action="/account/logout/" method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="HGAOKzDJs7VDSOE1ex4AYFBr4TNq8j5l">
+</form>
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                </header>-->
+
+
+
+
+	<div class="container-fluid" >
+			
+		<div class="row" >
+		
+			<div class="col-sm-4 " style="  border: 1px solid #E8E8E8 ;  background-color: #FFFFFF;">
+				<div class="col-sm-12">
+					<script type="text/javascript">
+							
+							$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+								e.target('home') // newly activated tab
+					 			e.relatedTarget('profile') // previous active tab
+							})		
+
+
+							$('ques').click(function (e){
+								e.preventDefault()
+								$(this).tab('show')
+							})
+					</script>
+
+
+			
+
+					<ul class="nav nav-tabs" role="tablist" >
+						<li  role="presentation"  >
+					  		<a href="#home" aria-controls="home" role="tab" data-toggle="tab" >QUESTION</a>
+					  
+						  	<!--<div class="clearfix">
+								<div class="">
+									<span class="glyphicon glyphicon-star-emptye">
+									</span>
+
+									hey					
+								</div>					
+							</div>-->
+
+						</li>
+
+						<li role="presentation" class="active" >
+
+						  <a href="#profile" aria-controls="profiles" role="tab" data-toggle="tab" >CHECK LIST</a>
+
+						</li>
+					</ul>
+
+							<!--<div class="clearfix">
+								<div class="">
+									<span class="glyphicon glyphicon-star-emptye"></span>
+
+									hey
+									
+								</div>
+
+							</div>-->
+
+					<div class="tab-content">
+			    		<div role="tabpanel" class="tab-pane fade " id="home" style="height: 94%;">
+
+			    			
+			    			<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									
+										<p>What is the best Part of your job?</p>
+											
+								
+								</div>
+							</div>
+
+
+			    			<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									
+										<p>What career acccomplishement are you most proud of and why?</p>
+											
+								
+								</div>
+							</div>
+
+
+			    			<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									
+										<p>What 5 personality traits are the most important for being successful at your job?</p>
+											
+								
+								</div>
+							</div>
+
+
+			    			<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									
+										<p>How much time do you spend sitting at your desk?</p>
+											
+								
+								</div>
+							</div>
+							<p></p>
+
+
+			   			</div>
+
+
+			    		<div role="tabpanel" class="tab-pane fade in active" id="profile" style="height: 94%;">
+			    			<div class=" row " style="padding-bottom: 20px; padding-left: 20px;">
+			    			<p>&nbsp;</p>
+				    			<div class="clearfix" style=" display: inline; ">
+
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+									
+									<span style=" " >
+										<strong>
+											Microphhone Quality
+										</strong>				
+									</span>
+
+
+									<!--<i class="icon-large icon-microphone"></i>-->
+
+									<span style=" ">
+
+										<input type="checkbox" value="None" id="squaredTwo" name="check" />
+
+											<!--<div class="squaredTwo">
+												<input type="checkbox" value="None" id="squaredTwo" name="check" />
+												<label for="squaredTwo">
+													
+												</label>
+											</div>-->
+
+									</span>
+								</div>
+							</div>
+
+
+
+							<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+						
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									<span>
+										<strong>Lighting Quality</strong>
+											<span align="right" >
+
+												<input type="checkbox" value="None" id="squaredTwo" name="check" />		
+
+											</span>
+
+										<br>
+										
+										Is light facing the volunteer?<br>
+										<a href="">Tell me more?</a>
+
+									</span>
+								
+								</div>
+							</div>
+
+							<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									<span>
+										<strong>Camera Placement</strong>
+											<span align="right" >
+
+												<input type="checkbox" value="None" id="squaredTwo" name="check" />		
+
+											</span>
+
+										<br>
+										Is the volunteer's face centered<br>
+										in the frame? <a href=""> Tell me more?</a>
+
+									</span>
+
+								
+
+								</div>
+
+							</div>
+
+							<div class="row" style="padding: 20px;">
+
+								<div class="clearfix" style=" display: inline; ">
+
+									<span class="glyphicon glyphicon-tasks" aria-hidden="true">
+
+									</span>
+
+									<span>
+										<strong>Power Source</strong>
+												<span align="right" >
+
+													<input type="checkbox" value="None" id="squaredTwo" name="check" />		
+
+												</span>
+										<br>
+										Is there enough battery life or your computer plugged into a power source? <a href=""> Tell me more?</a> 
+
+									</span>
+									
+								</div>
+							</div>
+
+							<div class="row" style="padding: 15px; " align="center">
+								<p>&nbsp;
+								&nbsp;
+								&nbsp;
+								</p>
+								<h2>
+									Next
+								</h2>
+								
+								<button>
+									View Questions 
+
+								</button>
+								<p>
+								&nbsp;
+								&nbsp;
+								&nbsp;
+								</p>
+							</div>
+
+						</div>
+
+					    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+					    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+		  			</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="col-sm-8 " >
+				<div class="col-sm-12" style=" border: 1px solid #E8E8E8 ;  background-color: #FFFFFF;">
+
+					<div class="row" align="center" style="padding: 20px; ">
+						<img src="">
+						<h1>
+							Verify your presentation quality
+						</h1>	
+						<span>
+							Then, click the <strong><u>Questions</u></strong> tab to record.
+						</span>			
+
+					</div>
+
+					<div class="row" style="height:86%; border: 1px solid #E8E8E8 ; background-color: #FFFFFF;">
+						
+					</div>
 				</div>
 
-				
-			</div>-->
-
-
-			  </li>
-			  <li role="presentation" ><a href="#profile" aria-controls="profiles" role="tab" data-toggle="tab" >CHECK LIST</a>
-
-			  
-
-			  	
-					
-
-
-			  </li>
-			</ul>
-
-
-
-			<!--<div class="clearfix">
-			<div class="">
-				<span class="glyphicon glyphicon-star-emptye"></span>
-
-				hey
-				
 			</div>
-
-				
-			</div>-->
-
-			<div class="tab-content">
-	    <div role="tabpanel" class="tab-pane fade in active" id="home">hello</div>
-	    <div role="tabpanel" class="tab-pane fade" id="profile">
-	    <div class="clearfix">
-			
-			<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
-					<div>
-					<p>
-						Microphhone Quality
-						
-					</p>
-					<div>
-						
-					</div>
-					</div>
-	    <div role="tabpanel" class="tab-pane" id="messages">...</div>
-	    <div role="tabpanel" class="tab-pane" id="settings">...</div>
-  			</div>
-
-
-
-			<div>
-				
-			</div>
-
-			<div>
-				
-			</div>
-
-			<div>
-				
-			</div>
-
-				
-
-
-
-
-
-
-
 		</div>
 
-		<div class="col-sm-7" style=" background-color: #FFFFFF;">
-			
-
-		</div>
 	</div>
-
-</div>
 </body>
