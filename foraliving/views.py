@@ -14,7 +14,8 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-	return render(request,'homepage.html') 
+	videos = Video.objects.filter(tags='homepage')
+	return render(request,'homepage.html', {'videos' : videos, }) 
 
 def twopage(request):
 	return render(request,'home.html') 

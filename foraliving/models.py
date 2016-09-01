@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User, Group
 from django.db import models
+from datetime import datetime    
 
 class LMS(models.Model):
 	name = models.CharField(max_length=128)
@@ -46,7 +47,7 @@ class User_Add_Ons(models.Model):
 		verbose_name_plural = 'User Add-ons'
 
 	def __unicode__(self):
-		return self.user
+		return str(self.user)
 
 class User_Group_Role_Map(models.Model):
 	group = models.ForeignKey(Group) 
@@ -73,7 +74,7 @@ class Class(models.Model):
 		verbose_name_plural = 'FAL Classes'
 
 	def __unicode__(self):
-		return self.name
+		return str(self.school) + ':' + str(self.teacher)
 
 class Interview(models.Model):
 	interviewer = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, related_name='interviewer', )
@@ -90,7 +91,7 @@ class Question(models.Model):
 	creation_date = models.DateTimeField()
 
 	def __unicode__(self):
-		return self.name
+		return str(self.created_by) + ':' + str(self.name)
 
 class Interview_Question_Map(models.Model):
 	interview = models.ForeignKey(Interview, on_delete=models.CASCADE, )
@@ -101,7 +102,7 @@ class Interview_Question_Map(models.Model):
 		verbose_name_plural = 'Interview Questions'
 
 	def __unicode__(self):
-		return self.name
+		return str(self.question) + ' (' + str(interview) + ')'
 	
 class Answer(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
@@ -110,17 +111,18 @@ class Answer(models.Model):
 	creation_date = models.DateTimeField()
 
 	def __unicode__(self):
-		return self.name
+		return str(self.question)
 
 class Video(models.Model):
 	# interview = models.ForeignKey(Interview, on_delete=models.CASCADE, null=True, blank=True, )
+	name = models.CharField(max_length=128)
 	url = models.CharField(max_length=128)
-	tags = models.CharField(max_length=128)
+	tags = models.CharField(max_length=128, null=True, blank=True, )
 	created_by = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE, )
-	creation_date = models.DateTimeField()
+	creation_date = models.DateTimeField(default=datetime.now, blank=True)
 
 	def __unicode__(self):
-		return 'self.name'
+		return str(self.name) + ' (' + str(self.creation_date) + ')'
 
 class Question_Video_Map(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE, )
@@ -155,7 +157,7 @@ class Video_Comment(models.Model):
 		verbose_name_plural = 'Video Comments'
 
 	def __unicode__(self):
-		return self.name
+		return str(self.video) + ' (' + str(created_by) + ', ' + str(creation_date) + ')'
 
 class Assignment(models.Model):
 	title = models.CharField(max_length=128)
@@ -165,7 +167,7 @@ class Assignment(models.Model):
 	creation_date = models.DateTimeField()
 
 	def __unicode__(self):
-		return self.name
+		return str(self.title) + ' (' + str(falClass) + ')'
 
 class Assignment_Submission(models.Model):
 	name = models.CharField(max_length=128)

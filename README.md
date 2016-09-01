@@ -23,6 +23,7 @@ You should note that most (if not all) the dependencies will be installed from p
   * `pip install django-user-accounts`
   * `pip install pinax-theme-bootstrap`
   * `pip install metron`
+  * `pip install BeautifulSoup`
 
 ##### If everything worked well, you should now be ready to run the project on your local machine.
   * To start the server, run `python manage.py runserver`
