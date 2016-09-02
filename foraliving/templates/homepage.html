@@ -1,6 +1,8 @@
 {% extends "site_base.html" %}
 {% load i18n %}
 {% load bootstrap %}
+{% load staticfiles %}
+{% load static %}
 
 {% block head_title %}
     {% trans "My Portfolio" %}
@@ -11,518 +13,146 @@
 {% block body %}
 <header>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/homepage.css' %}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-	<style type="text/css">
-			
-			.flex-video {
-          position: relative;
-          padding-top: 25px;
-          padding-bottom: 67.5%;
-          height: 0;
-          margin-bottom: 16px;
-          overflow: hidden;
-           }
-
-          .flex-video.widescreen { padding-bottom: 57.25%; }
-          .flex-video.vimeo { padding-top: 0; }
-
-          .flex-video iframe,
-          .flex-video object,
-          .flex-video embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
-
-          #first-row {
-
-          	position: absolute;
-          	left: 5px;
-          	right: 5px;
-
-          	width: 95%;
-          	padding-top: 55px;
-       		
-
-          }
-
-          #grey {
-          	font-family: Arial, Helvetica, sans-serif; 
-          	background-color: #E0E0E0; 
-          	width: 90%;
-          	padding-bottom: 15px;
-          }
-
-			@media  (max-width: 720px) {
-			#sizechange {
-			    font-size: 18pt;
-			  }
-			}
-          
-
-			
-
-			 @media only screen and (max-device-width: 800px),  
-			 only screen and (device-width:1024px) and (device-height: 600px), only screen 
-
-			 and (width: 1280px) and (orientation: landscape), only screen 
-
-			 and (device-width: 800px), only screen and (max-width: 767px) {
-
-			 .flex-video { padding-top: 0; }
-	  		 }
-
-	</style>
 </header>
 
-	<div id="first-row" class="container-fluid" style="  ">
+<div id="first-row" class="container-fluid" style="  ">
 
-		<div id="grey" class="container" style="  " >
-			<p>&nbsp;</p>
+	<div id="grey" class="container" style="  " >
+		<p>&nbsp;</p>
 
-			
-			<span class="row" style="margin: 40px;">
-					<span class="col-sm-8">
-
-						<div id="sizechange" class="hidden-xs" style="  font-size:30pt; color: #5da4d2;" align="left">Welcome Pilot Teachers!</div>
-			
-						<div class="visible-xs-inline" style=" text-align: center;  font-size:18pt; color: #5da4d2;" ><br>&nbsp;&nbsp;&nbsp;&nbsp;Welcome Pilot Teachers!<br></div><br>
-
-						<p style="color: #333333; font-size: 1.6vw;">We are excited about starting this pilot with you so that together we can design the best school driven solution fot building a community focused on providing students with an early start for finding their place in the world.</p>
-						<p style="color: #333333; font-size: 1.6vw;" >We believe if youth have opportunites to learn about the expectations of the workplace and the variety of careers available, they make better decisions about college, how much college debt to take on and will have fewer struggles finding work. It is our experience that many adults are very willing to help students in this process and will share their career experiences, given a viable process for doing so. Be assured that student safety is our top priority and we look forward to working with you to create a strong safety process.</p>
-					</span>
-
-					<span class="col-sm-4">
-						<div class="thumbnails">
-				         	<div class="span4">
-				         		<div class="thumbnail" style="  border: 1px solid #5da4d2 ; ">
-
-					                <div class="flex-video widescreen ">                  
-					                  <iframe  src="https://www.youtube.com/embed/htOroIbxiFY?rel=0" frameborder="0" allowfullscreen></iframe>
-					                </div>   
-
-
-					              <span class="caption">
-					                
-					               <span>About For A Living</span>
-					               
-					              </span>
-				         		</div>
-				         	 </div>
-			       		 </div>	
-					</span>
-			</span>
 		
-			<!-- Modal view inspired by: 
-			http://www.tutorialrepublic.com/faq/how-to-embed-youtube-video-inside-bootstrap-modal.php -->
-			<div class="container-fluid" style="font-family: Arial, Helvetica, sans-serif; padding: 30px; margin:auto; margin-right: 4px; margin-left: 4px; ">
+		<span class="row" style="margin: 40px;">
+				<span class="col-sm-8">
 
-				<!--<div class="row">
+					<div id="sizechange" class="hidden-xs" style="  font-size:30pt; color: #5da4d2;" align="left">Welcome Pilot Teachers!</div>
+		
+					<div class="visible-xs-inline" style=" text-align: center;  font-size:18pt; color: #5da4d2;" ><br>&nbsp;&nbsp;&nbsp;&nbsp;Welcome Pilot Teachers!<br></div><br>
 
-					
+					<p style="color: #333333; font-size: 1.6vw;">We are excited about starting this pilot with you so that together we can design the best school driven solution fot building a community focused on providing students with an early start for finding their place in the world.</p>
+					<p style="color: #333333; font-size: 1.6vw;" >We believe if youth have opportunites to learn about the expectations of the workplace and the variety of careers available, they make better decisions about college, how much college debt to take on and will have fewer struggles finding work. It is our experience that many adults are very willing to help students in this process and will share their career experiences, given a viable process for doing so. Be assured that student safety is our top priority and we look forward to working with you to create a strong safety process.</p>
+				</span>
 
-						<div class="col-sm-4">
-							<div class="thumbnail">-->
-								<!-- Button HTML (to Trigger Modal) -->
-								<!--<button type="button" class="btn btn-default btn-lg">
-								    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-								</button>-->
-								<!-- Modal HTML -->
-								<!--<div id="myModal" class="modal fade">
-								    <div class="modal-dialog">
-								        <div class="modal-content">
-								            <div class="modal-header">
-								                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-								                <h4 class="modal-title">YouTube Video</h4>
-								            </div>
-								            <div class="modal-body">
-								                <iframe src="https://drive.google.com/file/d/0BxCxtGid6VF8bnMzMUNMTnN2bDQ/previewrel=0" width="560" height="315"></iframe>
-								            </div>
-								        </div>
-								    </div>
-								</div>
-								<div class="caption" style="">
-									<p>
-										<strong>
-											Eric <br>
-											UX Design Director<br>
-										</strong>
-										recorded July 9, 2016<br>
-										recorded by abbyM<br>
-										3.04 minutes
+				<span class="col-sm-4">
+					<div class="thumbnails">
+			         	<div class="span4">
+			         		<div class="thumbnail" style="  border: 1px solid #5da4d2 ; ">
 
-									</p>
-									<p>
-										<a href="#"></a>
-									</p>
-								</div>
-							</div>
-						</div>
-					<div class="col-sm-4">
-						<div class="thumbnail">-->
-							<!-- Button HTML (to Trigger Modal) -->
-							<!--<button type="button" class="btn btn-default btn-lg">
-							    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-							</button>-->
-							<!-- Modal HTML -->
-							<!--<div id="myModal" class="modal fade">
-							    <div class="modal-dialog">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-							                <h4 class="modal-title">YouTube Video</h4>
-							            </div>
-							            <div class="modal-body">
-							                <iframe src="https://drive.google.com/file/d/0BxCxtGid6VF8RkgzVDJ1SklnOVU/preview" width="560" height="315"></iframe>
-							            </div>
-							        </div>
-							    </div>
-							</div>
-							<div class="caption" style="">
-								<p>
-									<strong>
-										Kamal <br>
-										Web Developer <br>
-									</strong>
-									recorded July 9, 2016<br>
-									recorded by mzz<br>
-									3.04 minutes
-								</p>
-								<p>
-									<a href="#"></a>
-								</p>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="thumbnail">-->
-							<!-- Button HTML (to Trigger Modal) -->
-							<!--<button type="button" class="btn btn-default btn-lg">
-							    <a href="#myModal" class="glyphicon glyphicon-play-circle" data-toggle="modal"></a>
-							</button>--
-							<!-- Modal HTML -->
-							<!--<div id="myModal" class="modal fade">
-							    <div class="modal-dialog">
-							        <div class="modal-content">
-							            <div class="modal-header">
-							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-							                <h4 class="modal-title">YouTube Video</h4>
-							            </div>
-							            <div class="modal-body">
-							                <iframe id="cartoonVideo" width="560" height="315" src="https://drive.google.com/file/d/0BxCxtGid6VF8Y0djTTdPdV9OdG8/preview?rel=0" frameborder="0" allowfullscreen></iframe>
-							            </div>
-							        </div>
-							    </div>
-							</div>
-							<div class="caption" style="">
-								<p>
-									<strong>
-										Deric <br>
-										Web Developer <br>
-									</strong>
-									recorded July 9, 2016<br>
-									recorded by mzz<br>
-									3.04 minutes
-								</p>
-								<p>
-									<a href="#"></a>
-								</p>
-							</div>
-						</div>
-					</div>
- 				</div>-->
-
- 				<div class="row">
- 					<div class="col-lg-3 col-sm-6">
-	 					<div id="db load test">
-	 						{% for video in videos %}
-	 							<div class="flex-video widescreen ">
-	 									                  
-	 				          		<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
-	 				            </div>   
-	 						{% endfor %}
-	 					</div>
-	 				</div>
- 				</div>
-
-				<div class="row">
-
-					<br><br>
-					<div  id="sizechange" style=" font-size:30pt; color: #5da4d2;">
-						&nbsp; Example videos created by the For A Living team
-					</div>
-
-				
-					<div class="col-lg-3 col-sm-6">
-
-						<div class="thumbnails">
-				         	<div class="span4">
-				         		<div class="thumbnail" >
+				                <div class="flex-video widescreen ">                  
+					                {% for demo in videoDemo %}
+					                	<iframe  src="{{demo.url}}" frameborder="0" allowfullscreen></iframe>
+					                {% endfor %}
+				                </div>   
 
 
-					                <div class="flex-video widescreen ">
-					                  
-					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/uaoqDrNuOsk?rel=0" frameborder="0" allowfullscreen></iframe>
-					                </div>   
-
-					              <div class="caption">
-					                
-					              
-										<strong style=" font-size: 18pt; color: #808060; ">
-											Jacquie <br>
-											User Experieence Manager<br>
-										</strong>
-										<span style=" font-size: 13pt; color: #808060; ">
-											recorded August 14, 2016<br>
-										
-											3:03 minutes
-										</span>			               
-					              </div>
-				         		</div>
-				         	</div>
-				         </div>
-					</div>
-
-
-					<div class="col-lg-3 col-sm-6">
-
-						<div class="thumbnails">
-				         	<div class="span4">
-				         		<div class="thumbnail" >
-
-
-					                <div class="flex-video widescreen ">
-					                  
-					                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Hhiaht8Zu0M?rel=0" frameborder="0" allowfullscreen></iframe>
-					                </div>   
-
-					                
-					              <div class="caption">
-					                
-					              
-										<strong style=" font-size: 18pt; color: #808060; ">
-											Jacquie <br>
-											User Experieence Manager<br>
-										</strong>
-										<span style=" font-size: 13pt; color: #808060; ">
-											recorded August 14, 2016<br>
-											
-											1:01 minutes
-										</span>								               
-					              </div>
-				         		</div>
-				         	</div>
-				        </div>
-					</div>
-					
-
-					<div class="col-lg-3 col-sm-6"  >
-						<div class="thumbnails">
-					         	<div class="span4">
-					         		<div class="thumbnail" >
-
-
-						                <div class="flex-video widescreen ">
-						                  
-						                 <iframe width="560" height="315" src="https://www.youtube.com/embed/VKAkC_yilvc?rel=0" frameborder="0" allowfullscreen></iframe>
-						                </div>   
-
-						                
-						              <div class="caption">
-						                
-						              
-											<strong style=" font-size: 18pt; color: #808060; ">
-												Jacquie <br>
-												User Experieence Manager<br>
-											</strong>
-											<span style=" font-size: 13pt; color: #808060; ">
-												recorded August 14, 2016<br>								
-												1:53 minutes					
-											</span>						               
-						              </div>
-					         		</div>
-					         	</div>
-					    </div>
-					</div>
-
-					<div class="col-lg-3 col-sm-6">
-
-						<div class="thumbnails">
-				         	<div class="span4">
-				         		<div class="thumbnail" >
-
-
-					                <div class="flex-video widescreen ">
-					                  
-					                 <iframe width="560" height="315" src="https://www.youtube.com/embed/IKa1JwB-32o?rel=0" frameborder="0" allowfullscreen></iframe>
-					                </div>   
-
-					                
-					              <div class="caption">
-					                
-					              
-										<strong style=" font-size: 18pt; color: #808060; ">
-											Jacquie <br>
-											User Experieence Manager<br>
-										</strong>
-										<span style=" font-size: 13pt; color: #808060; ">
-											recorded August 14, 2016<br>											
-											1:34 minutes
-										</span>													               
-					              </div>
-				         		</div>
-				         	</div>
-				    </div>
-				</div>		
-
-				<div class="row" style=" padding: 15px; ">
-
-						<div class="col-lg-3 col-sm-6">
-
-							<div class="thumbnails">
-					         	<div class="span4">
-					         		<div class="thumbnail" >
-
-
-						                <div class="flex-video widescreen ">
-						                  
-						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/wQba5McvsA0?rel=0" frameborder="0" allowfullscreen></iframe>
-						                </div>   
-
-						                
-						              <div class="caption">
-						                
-						              
-											<strong style=" font-size: 18pt; color: #808060; ">
-												Jenna <br>
-												User Experieence Manager<br>
-											</strong>
-											<span style=" font-size: 13pt; color: #808060; ">
-												recorded August 14, 2016<br>
-												
-												4:01 minutes
-											</span>								               
-						              </div>
-					         		</div>
-					         	</div>
-					        </div>
-					    </div>
-
-
-						<div class="col-lg-3 col-sm-6">
-
-							<div class="thumbnails">
-					         	<div class="span4">
-					         		<div class="thumbnail" >
-
-
-						                <div class="flex-video widescreen ">
-						                  
-						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/ItjZeIzkHP4?rel=0" frameborder="0" allowfullscreen></iframe>
-						                </div>   
-
-						                
-						              <div class="caption">
-						                
-						              
-											<strong style=" font-size: 18pt; color: #808060; ">
-												Jenna <br>
-												User Experieence Manager<br>
-											</strong>
-											<span style=" font-size: 13pt; color: #808060; ">
-												recorded August 14, 2016<br>
-												
-												1:24 minutes
-											</span>								               
-						              </div>
-					         		</div>
-					         	</div>
-					        </div>
-					    </div>
-
-
-
-						<div class="col-lg-3 col-sm-6">
-
-							<div class="thumbnails">
-					         	<div class="span4">
-					         		<div class="thumbnail" >
-
-
-						                <div class="flex-video widescreen ">
-						                  
-						                  <iframe width="560" height="315" src="https://www.youtube.com/embed/grzRsvClUJo?rel=0" frameborder="0" allowfullscreen></iframe>
-						                </div>   
-
-						                
-						              <div class="caption">
-						                
-						              
-											<strong style=" font-size: 18pt; color: #808060; ">
-												Jenna <br>
-												User Experieence Manager<br>
-											</strong>
-											<span style=" font-size: 13pt; color: #808060; ">
-												recorded August 14, 2016<br>
-												
-												1:15 minutes
-											</span>								               
-						              </div>
-					         		</div>
-					         	</div>
-					        </div>
-					    </div>
-
-
-						<div class="col-lg-3 col-sm-6">
-
-							<div class="thumbnails">
-					         	<div class="span4">
-					         		<div class="thumbnail" >
-
-
-						                <div class="flex-video widescreen ">
-						                  
-					                  		<iframe width="560" height="315" src="https://www.youtube.com/embed/chog9N9lE9E?rel=0" frameborder="0" allowfullscreen></iframe>
-						                </div>   
-
-						                
-						              <div class="caption">
-						                
-						              
-											<strong style=" font-size: 18pt; color: #808060; ">
-												Jenna <br>
-												User Experieence Manager<br>
-											</strong>
-											<span style=" font-size: 13pt; color: #808060; ">
-												recorded August 14, 2016<br>
-												
-												1:24 minutes
-											</span>								               
-						              </div>
-					         		</div>
-					         	</div>
-					        </div>
-					    </div>
-				</div>	
-			</div>
-
+				              <span class="caption">
+				                
+				               <span>About For A Living</span>
+				               
+				              </span>
+			         		</div>
+			         	 </div>
+		       		 </div>	
+				</span>
+		</span>
+	
+		<br><br>
+		<div  id="sizechange" style=" font-size:30pt; color: #5da4d2;">
+			&nbsp; Example videos created by the For A Living team
 		</div>
 
+		<!-- Jacquie's Videos -->
+		<div class="row">
+			{% for video in videoJacquie %}
+				<div class="col-lg-4 col-sm-6">
+					<div class="thumbnails">
+			         	<div class="span4">
+			         		<div class="thumbnail" >
+				                <div class="flex-video widescreen ">
+				                 	<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
+				                </div>   
 
-		<div id ="upload_table">
-			<div>
-				<a href="#"></a>
-			</div>	
-		</div>
+					            <div class="caption">
+									<strong style=" font-size: 18pt; color: #808060; ">
+										Jacquie <br>
+										User Experieence Manager<br>
+									</strong>
+									<span style=" font-size: 13pt; color: #808060; ">
+										uploaded on {{video.creation_date}}<br>
+									
+										3:03 minutes
+									</span>			               
+				              </div>
+			         		</div>
+			         	</div>
+			         </div>
+				</div>
+			{% endfor %}
+		</div>		
 
+		<hr>
+		<!-- Jenna's Videos -->
+		<div class="row">
+			{% for video in videoJenna %}
+				<div class="col-lg-4 col-sm-6">
+					<div class="thumbnails">
+			         	<div class="span4">
+			         		<div class="thumbnail" >
+				                <div class="flex-video widescreen ">
+				                 	<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
+				                </div>   
+
+					            <div class="caption">
+									<strong style=" font-size: 18pt; color: #808060; ">
+										Jenna <br>
+										College and Career Counselor<br>
+									</strong>
+									<span style=" font-size: 13pt; color: #808060; ">
+										uploaded on {{video.creation_date}}<br>
+									
+										3:03 minutes
+									</span>			               
+				              </div>
+			         		</div>
+			         	</div>
+			         </div>
+				</div>
+			{% endfor %}
+		</div>		
+		
+		<hr>
+		<!-- Eric's Videos -->
+		<div class="row">
+			{% for video in videoEric %}
+				<div class="col-lg-4 col-sm-6">
+					<div class="thumbnails">
+			         	<div class="span4">
+			         		<div class="thumbnail" >
+				                <div class="flex-video widescreen ">
+				                 	<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
+				                </div>   
+
+					            <div class="caption">
+									<strong style=" font-size: 18pt; color: #808060; ">
+										Eric <br>
+										UX Designer<br>
+									</strong>
+									<span style=" font-size: 13pt; color: #808060; ">
+										uploaded on {{video.creation_date}}<br>
+									
+										3:03 minutes
+									</span>			               
+				              </div>
+			         		</div>
+			         	</div>
+			         </div>
+				</div>
+			{% endfor %}
+		</div>		
 	</div>
+</div>
 
 	
 
@@ -530,22 +160,6 @@
 {% endblock %}
 {% block scripts %}
 	<script type="text/javascript">
-	    $(document).ready(function(){
-	    /* Get iframe src attribute value i.e. YouTube video url
-	    and store it in a variable */
-	    var url = $("#cartoonVideo").attr('src');
-	    
-	    /* Assign empty url value to the iframe src attribute when
-	    modal hide, which stop the video playing */
-	    $("#myModal").on('hide.bs.modal', function(){
-	        $("#cartoonVideo").attr('src', '');
-	    });
-	    
-	    /* Assign the initially stored url back to the iframe src
-	    attribute when modal is displayed again */
-	    $("#myModal").on('show.bs.modal', function(){
-	        $("#cartoonVideo").attr('src', url);
-	    });
-	});
+	  
 	</script>
 {% endblock %}\

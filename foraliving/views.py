@@ -14,8 +14,11 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-	videos = Video.objects.filter(tags='homepage')
-	return render(request,'homepage.html', {'videos' : videos, }) 
+	videoJenna = Video.objects.filter(tags__contains='homepage', tags__icontains='jenna')
+	videoJacquie = Video.objects.filter(tags__contains='homepage', tags__icontains='jacquie')
+	videoEric = Video.objects.filter(tags__contains='homepage', tags__icontains='eric')
+	videoDemo = Video.objects.filter(tags__contains='homepage', tags__icontains='demo')
+	return render(request,'homepage.html', {'videoJenna' : videoJenna, 'videoJacquie' : videoJacquie, 'videoEric' : videoEric, 'videoDemo' : videoDemo, }) 
 
 def twopage(request):
 	return render(request,'home.html') 
