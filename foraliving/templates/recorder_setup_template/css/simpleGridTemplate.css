@@ -252,7 +252,8 @@ footer {
 
 /* Mobile Portrait */
 @media (max-width: 319px) {
-	.column: 100%;
+	.column {
+	width: 100%;}
 	}
 
 
@@ -371,7 +372,7 @@ footer {
 	padding-right: 15px;}
 
 .column .bodylink a {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	
 }
 }
