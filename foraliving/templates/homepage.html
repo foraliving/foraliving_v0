@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block head_title %}
-    {% trans "My Portfolio" %}
+    {% trans "Home" %}
 {% endblock %}
 
 
@@ -64,8 +64,8 @@
 		</div>
 
 		<!-- Jacquie's Videos -->
-		<div class="row">
-			{% for video in videoJacquie %}
+		<!-- <div class="row"> -->
+			{% for video in videos %}
 				<div class="col-lg-4 col-sm-6">
 					<div class="thumbnails">
 			         	<div class="span4">
@@ -76,13 +76,10 @@
 
 					            <div class="caption">
 									<strong style=" font-size: 18pt; color: #808060; ">
-										Jacquie <br>
-										User Experieence Manager<br>
+										{{video.name}}<br>
 									</strong>
 									<span style=" font-size: 13pt; color: #808060; ">
-										uploaded on {{video.creation_date}}<br>
-									
-										3:03 minutes
+										{{video.creation_date}}<br>
 									</span>			               
 				              </div>
 			         		</div>
@@ -90,67 +87,9 @@
 			         </div>
 				</div>
 			{% endfor %}
-		</div>		
+		<!-- </div>		 -->
 
-		<hr>
-		<!-- Jenna's Videos -->
-		<div class="row">
-			{% for video in videoJenna %}
-				<div class="col-lg-4 col-sm-6">
-					<div class="thumbnails">
-			         	<div class="span4">
-			         		<div class="thumbnail" >
-				                <div class="flex-video widescreen ">
-				                 	<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
-				                </div>   
-
-					            <div class="caption">
-									<strong style=" font-size: 18pt; color: #808060; ">
-										Jenna <br>
-										College and Career Counselor<br>
-									</strong>
-									<span style=" font-size: 13pt; color: #808060; ">
-										uploaded on {{video.creation_date}}<br>
-									
-										3:03 minutes
-									</span>			               
-				              </div>
-			         		</div>
-			         	</div>
-			         </div>
-				</div>
-			{% endfor %}
-		</div>		
-		
-		<hr>
-		<!-- Eric's Videos -->
-		<div class="row">
-			{% for video in videoEric %}
-				<div class="col-lg-4 col-sm-6">
-					<div class="thumbnails">
-			         	<div class="span4">
-			         		<div class="thumbnail" >
-				                <div class="flex-video widescreen ">
-				                 	<iframe width="560" height="315" src="{{video.url}}" frameborder="0" allowfullscreen></iframe>
-				                </div>   
-
-					            <div class="caption">
-									<strong style=" font-size: 18pt; color: #808060; ">
-										Eric <br>
-										UX Designer<br>
-									</strong>
-									<span style=" font-size: 13pt; color: #808060; ">
-										uploaded on {{video.creation_date}}<br>
-									
-										3:03 minutes
-									</span>			               
-				              </div>
-			         		</div>
-			         	</div>
-			         </div>
-				</div>
-			{% endfor %}
-		</div>		
+		<hr>		
 	</div>
 </div>
 
@@ -162,4 +101,4 @@
 	<script type="text/javascript">
 	  
 	</script>
-{% endblock %}\
+{% endblock %}

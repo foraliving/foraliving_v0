@@ -1,0 +1,67 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load bootstrap %}
+{% load staticfiles %}
+{% load static %}
+
+{% block head_title %}
+    {% trans "Record your interview" %}
+{% endblock %}
+
+{% block body %}
+	<br><br><br><br><br><br>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/interviewSetup.css' %}">
+
+	<div class="container-fluid"> 
+	    <!-- Hero Section -->
+	    <section class="intro">
+	        <div class="row-fluid">
+	            <div class="column">
+	                <h4 align="left"> Did you know what you wanted to do for a living when you graduated from high school?</h4>.
+	                <div class="embed-responsive embed-responsive-16by9">
+	                    <iframe width="560" height="315" class="embed-responsive-item" src="https://www.youtube.com/embed/PmPox6fs4TM?rel=0" frameborder="0" allowfullscreen></iframe>
+	                </div> 
+	            </div>
+
+	            <div class="column">
+	                <h3>Check your setup!</h3>
+	                <h2>The meter below will display green when interviewee's voice is loud enough. </h2>
+
+	                <div id="meters">
+	                    <div id="instant">
+	                        <div class="meter-label">Instant: </div>
+	                        <meter high="0.25" max="1" value="0"></meter>
+	                        <div class="value"></div>
+	                    </div>
+	                    <div id="slow">
+	                        <div class="meter-label">Slow: </div>
+	                        <meter high="0.25" max="1" value="0"></meter>
+	                        <div class="value"></div>
+	                    </div>
+	                    <div id="clip">
+	                        <div class="meter-label">Clip: </div>
+	                        <meter max="1" value="0"></meter>
+	                        <div class="value"></div>
+	                    </div>
+	                </div>
+
+	                <div align="center">
+	                    <button type="button" class="btn btn-success"  onclick="location.href = 'setup2.html';">Yes</button>
+	                    <button type="button" class="btn btn-warning" onclick="location.href = 'mic_help.html';">No</button>
+	                </div>
+
+	                <div class="bodylink"><a href="recordstart.html" title="Skip">Skip</a></div>
+	            </div>
+	        </div>
+	    </section>
+	</div>
+{% endblock %}
+{% block scripts %}
+	<!-- TODO: clean up/optimize the js -->
+	<script src="{% static 'js/soundmeter.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/adapter.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{% endblock %}

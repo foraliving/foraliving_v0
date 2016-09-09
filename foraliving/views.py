@@ -14,14 +14,15 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-	videoJenna = Video.objects.filter(tags__contains='homepage', tags__icontains='jenna')
-	videoJacquie = Video.objects.filter(tags__contains='homepage', tags__icontains='jacquie')
-	videoEric = Video.objects.filter(tags__contains='homepage', tags__icontains='eric')
 	videoDemo = Video.objects.filter(tags__contains='homepage', tags__icontains='demo')
-	return render(request,'homepage.html', {'videoJenna' : videoJenna, 'videoJacquie' : videoJacquie, 'videoEric' : videoEric, 'videoDemo' : videoDemo, }) 
+	videos = Video.objects.filter(tags__contains='homepage', ).exclude(tags__icontains='demo')
+	return render(request,'homepage.html', {'videos' : videos, 'videoDemo' : videoDemo, }) 
 
 def twopage(request):
 	return render(request,'home.html') 
 
 def sitetheme(request):
 	return render(request,'FAL_Theme.html') 
+
+def interviewSetup(request):
+	return render(request, 'interview_setup.html')
