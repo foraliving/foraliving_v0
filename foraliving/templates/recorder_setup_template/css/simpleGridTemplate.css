@@ -39,6 +39,15 @@ header {
 	font-size: 50px;
 }
 
+.gallery .thumbnail {
+	color: #333333;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .header a {
 	color: #6DC7D0;
 	font-size: 1.5rem;
@@ -69,7 +78,7 @@ header {
 	margin: 0;
 	letter-spacing: 4px;
 }
-.iframe {
+.intro .column .iframe {
 	padding: 10 20;
 	}
 
@@ -108,6 +117,75 @@ header {
 	
 }
 
+.thumbnail .text_column {
+	width: 100%;
+	text-align: left;
+	font-weight: lighter;
+	line-height: 20px;
+	float: left;
+	color: #757575;
+}
+.gallery {
+	clear: both;
+	display: inline-block;
+	width: 100%;
+	background-color: #FFFFFF;
+	/* [disabled]min-width: 400px;
+*/
+	padding-bottom: 35px;
+	padding-top: 0px;
+	margin-top: -5px;
+	margin-bottom: 0px;
+}
+.thumbnail {
+	width: 100%;
+		text-align: center;
+	float: left;
+	margin-top: 25px;
+	background-color: #F8F8F8;
+	margin: 1%;
+	border-radius: 3px;
+	border-bottom: 4px solid #6DC7D0;
+}
+.thumbnail-demo {
+	width: 100%;
+	text-align: center;
+	float: left;
+	margin-top: 10px;
+	background-color: #F8F8F8;
+	padding-bottom: 0px;
+	margin-left: 1%;
+	margin-right: 1%;
+ 
+	 
+}
+.thumbnail-camera {
+	width: 100%;
+	text-align: center;
+	min-width: 320px;
+	float: left;
+	margin-top: 10px;
+	background-color: #F8F8F8;
+	padding-bottom: 0px;
+	margin-left: 1%;
+	margin-right: 1%;
+ 
+	 
+}
+.gallery .thumbnail h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #6DC7D0;
+	text-align: left;
+
+}
+.gallery .thumbnail p {
+	margin: 0;
+	color: #757575;
+	text-align: left;
+	
+}
+
 /* More info */
 
 .intro {
@@ -137,13 +215,16 @@ h4 {
 h3 {
 	color: #6DC7D0;
 	text-align: left;
-	font-weight: 300;
+	font-weight: 500;
+	font-size: 3.0rem;
+	padding-top: 2%;
+	padding-bottom: 1%;
 }
 h2 {
 	color: #555555;
 	text-align: left;
-	font-weight: 300;
 	font-size: 2.2rem;
+	font-weight:300;
 	
 }
 .intro .column p {
@@ -276,18 +357,63 @@ footer {
 	padding-bottom: 4px;
 	padding-top: 4px;
 	text-align: left;
-	padding-left: 20px;
-	padding-right: 20px;
+	
 }
 
 /* Mobile Portrait */
 @media (max-width: 319px) {
 	.column {
 	width: 100%;}
-	}
+	
 .question h2 {
 	font-size: 2.6rem;
 
+}
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.thumbnail .text_column {
+	width: 100%;
+	text-align: justify;
+	font-size: 1.6rem;
+	
+}
+.intro .column p {
+	width: 80%;
+	margin-left: 0px;
+	
+}
+
+.thumbnail {
+	width: 100%;
+	min-width: 250px;
+}
+.column {
+	width: 100%;
+	margin-top: 0px;
+}
+.hero_header {
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 22px;
+	text-align: center;
+}
+.documents a {
+	font-size: 118px;
+	width: 80%;
+	margin-left: 0px;
+}
+.intro .column p {
+	width: 100%;
+	text-align: center;
+	padding-left: 0px;
+	text-size: 2.0rem;
+}
 }
 
 /* Mobile */
@@ -329,7 +455,7 @@ footer {
   line-height: 1.42857143;
 }
 
-.embed-responsive-item {
+.intro .column .embed-responsive-item {
 	padding-right: 10px;
 	
 }
@@ -337,20 +463,30 @@ footer {
 	font-size: 1.7rem;
 	
 }
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.text_column {
+	font-size: 1.9rem;
+}
+.thumbnail {
+	width: 100%;
+}
 }
 
 /* Small Tablets */
 @media (min-width: 570px)and (max-width: 767px) {
 
-
 .thumbnail {
-	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	
 }
-
-.thumbnail {
-	width: 100%;
-}
-
 .intro {
 	display:inline-block;
 	width: 100%;
@@ -389,7 +525,7 @@ footer {
 .col-xs-6{
 	width: 100%;
 	}
-
+	
 .intro h2 {
 	font-size: 2.2rem;
 	font-weight: 400;
@@ -406,18 +542,31 @@ footer {
 	font-weight: 300;
 	padding-right: 15px;
 }
+.thumbnail h4 {
+	font-size: 2.2rem;
 
-.embed-responsive-item {
+}
+.intro .column .embed-responsive-item {
 	padding-right: 15px;}
 
 .column .bodylink a {
 	font-size: 1.6rem;
 	
 }
+.thumbnail .text_column {
+	font-size: 1.9rem;
+}
+.thumbnail p {
+	font-size: 1.9rem;
+}
 }
 /* Small Desktops */
 @media (min-width: 768px) and (max-width: 1096px) {
 
+
+.thumbnail p {
+	font-size: 1.6rem;
+}
 .column {
 	padding-left: 15px;
 }
@@ -455,7 +604,8 @@ footer {
 @media (min-width: 1097px){
 .intro .column {
 	width: 50% }
-.embed-responsive-item {
+
+.intro .column .embed-responsive-item {
 	padding-right: 25px;}
 	
 .intro h3 {
@@ -471,7 +621,7 @@ footer {
 	padding-right: 10px;
 	font-weight: 200;
 }
-  .header a {
+.header a {
 	font-size: 1.9rem;
 	}
 	
@@ -483,7 +633,7 @@ footer {
 	font-size: 2.0rem;
 	
 }
-.embed-responsive-item {
+.intro .column .embed-responsive-item {
 	padding-right: 15px;}
 
 
