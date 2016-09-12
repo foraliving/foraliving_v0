@@ -10,6 +10,17 @@
 
 'use strict';
 
+// Put variables in global scope to make them available to the browser console.
+var video = document.querySelector('video');
+var canvas = window.canvas = document.querySelector('canvas');
+canvas.width = 480;
+canvas.height = 360;
+
+var constraints = {
+  audio: true,
+  video: true
+};
+
 var instantMeter = document.querySelector('#instant meter');
 var slowMeter = document.querySelector('#slow meter');
 var clipMeter = document.querySelector('#clip meter');
@@ -25,17 +36,13 @@ try {
   alert('Web Audio API not supported.');
 }
 
-// Put variables in global scope to make them available to the browser console.
-var constraints = window.constraints = {
-  audio: true,
-  video: false
-};
-
 function handleSuccess(stream) {
   // Put variables in global scope to make them available to the
   // browser console.
   window.stream = stream;
   var soundMeter = window.soundMeter = new SoundMeter(window.audioContext);
+  video.srcObject = stream;
+
   soundMeter.connectToSource(stream, function(e) {
     if (e) {
       alert(e);

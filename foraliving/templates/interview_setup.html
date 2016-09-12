@@ -20,9 +20,10 @@
 	        <div class="row-fluid">
 	            <div class="column">
 	                <h4 align="left"> Did you know what you wanted to do for a living when you graduated from high school?</h4>.
-	                <div class="embed-responsive embed-responsive-16by9">
-	                    <iframe width="560" height="315" class="embed-responsive-item" src="https://www.youtube.com/embed/PmPox6fs4TM?rel=0" frameborder="0" allowfullscreen></iframe>
-	                </div> 
+	                <!-- <div class=""> -->
+	                    <video autoplay></video>
+	                    <canvas></canvas>
+	                <!-- </div>  -->
 	            </div>
 
 	            <div class="column">
@@ -60,8 +61,8 @@
 {% endblock %}
 {% block scripts %}
 	<!-- TODO: clean up/optimize the js -->
-	<script src="{% static 'js/soundmeter.js' %}"></script>
-	<script src="{% static 'js/main.js' %}"></script>
-	<script src="{% static 'js/adapter.js' %}"></script>
+	<script src="{% static 'js/webRTC/soundmeter.js' %}"></script>
+	<script src="{% static 'js/webRTC/main.js' %}"></script>
+	<script src="{% static 'js/webRTC/adapter.js' %}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 {% endblock %}
