@@ -26,3 +26,6 @@ def sitetheme(request):
 
 def interviewSetup(request):
 	return render(request, 'interview_setup.html')
+
+def record(request):
+	return render(request, 'record.html')

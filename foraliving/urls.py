@@ -16,6 +16,7 @@ urlpatterns = [
     url(r"^account/", include("account.urls")),
     url(r"^$", views.index, name="home"),
     url(r"^setup/", views.interviewSetup, name="setup"),
+    url(r"^record/", views.record, name="record"),
     url(r"^theme/", views.sitetheme, name='theme'),
     # url(r'^$', views.home, name='home'),
 ]
