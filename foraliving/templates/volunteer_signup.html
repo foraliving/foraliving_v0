@@ -1,0 +1,32 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load bootstrap %}
+{% load staticfiles %}
+{% load static %}
+
+{% block head_title %}
+    {% trans "Sign up as a volunteer" %}
+{% endblock %}
+
+{% block body %}
+	<br><br><br><br><br><br>
+	<div class="page-header">
+		<h1>{% trans "Please complete the contact information and career survey below" %}<h1>
+	</div>
+
+	<div class="container-fluid ">
+		<div class="row">
+			<div class="col-md-6">
+		        <form method="POST" >
+		            {% csrf_token %}
+		            {{ userForm|bootstrap }}
+		            {{ infoForm|bootstrap }}
+					<button type="submit" class="save btn btn-primary">Save</button>
+		        </form>
+			</div>
+		</div>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

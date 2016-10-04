@@ -49,6 +49,39 @@ class User_Add_Ons(models.Model):
 	def __unicode__(self):
 		return str(self.user)
 
+class Volunteer_User_Add_Ons(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	url = models.CharField(max_length=12)
+	canGetText = models.BooleanField(default=True)
+	workTitle = models.CharField(max_length=25)
+	isBusinessOwner = models.BooleanField(default=True)
+	workIndustry = models.CharField(max_length=25)
+	yearsInIndustry = models.IntegerField()
+	linkedinProfile = models.CharField(max_length=128, null=True, blank=True, )
+	hsGradChoices = (
+		(1, '1-4'),
+		(2, '5-10'),
+		(3, '11 or more'),
+		(4, 'Have not graduated'),)
+	yearsSinceHSGraduation = models.IntegerField(choices=hsGradChoices)
+	collegeLevelChoice = (
+		(1, "associate"),
+		(2, "bachelor's"),
+		(3, "master's"),
+		(4, "doctoral"),
+		(5, "none"),)
+	collegeLevel = models.IntegerField(choices=hsGradChoices)
+	collegeMajor = models.CharField(max_length=128, null=True, blank=True, )
+	skills = 1;
+	interests = 1;
+
+	class Meta:
+		verbose_name = 'Volunteer add-ons'
+		verbose_name_plural = 'Volunteer add-ons'
+
+	def __unicode__():
+		return "Volunteer: " + str(self.user)
+
 class User_Group_Role_Map(models.Model):
 	group = models.ForeignKey(Group) 
 	user = models.ForeignKey(User_Add_Ons, on_delete=models.CASCADE)

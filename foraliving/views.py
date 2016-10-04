@@ -1,10 +1,8 @@
-# from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, render, redirect
 from django.template import loader
-# from .forms import *
+from .forms import *
 from .models import *
-# from .filters import *
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -29,3 +27,16 @@ def interviewSetup(request):
 
 def record(request):
 	return render(request, 'record.html')
+
+def volunteerSignup(request):
+	if request.method == 'POST':
+		userForm = volunteerUserSignupForm(request.POST)
+		infoForm = volunteerSignupForm(request.POST)
+		if userForm.is_valid():
+			userForm.save()
+		return redirect('record')
+	else:
+		userForm = volunteerUserSignupForm()
+		infoForm = volunteerSignupForm()
+		
+	return render(request, 'volunteer_signup.html', {'userForm': userForm, 'infoForm': infoForm}, )

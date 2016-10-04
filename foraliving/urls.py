@@ -18,5 +18,6 @@ urlpatterns = [
     url(r"^setup/", views.interviewSetup, name="setup"),
     url(r"^record/", views.record, name="record"),
     url(r"^theme/", views.sitetheme, name='theme'),
+    url(r"^volunteer-signup/", views.volunteerSignup, name='vSignup'),
     # url(r'^$', views.home, name='home'),
 ]
