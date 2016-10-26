@@ -33,10 +33,21 @@ def volunteerSignup(request):
 		userForm = volunteerUserSignupForm(request.POST)
 		infoForm = volunteerSignupForm(request.POST)
 		if userForm.is_valid():
-			userForm.save()
+			newUser = userForm.save(commit=False)
+			if infoForm.is_valid():
+				newVolunteer = infoForm.save(commit=False)
+				newUser.save()
+				newVolunteer.user = User.objects.get(username=newUser.username)
+				newVolunteer.save()
+			# else:
+			# 	infoForm.user = User.objects.get(username=userForm.email)
+			# 	infoForm.save()
+
 		return redirect('record')
 	else:
 		userForm = volunteerUserSignupForm()
 		infoForm = volunteerSignupForm()
+	interestForm = newInterestForm()
+	skillForm = newSkillForm()
 		
-	return render(request, 'volunteer_signup.html', {'userForm': userForm, 'infoForm': infoForm}, )
+	return render(request, 'volunteer_signup.html', {'skillForm' : skillForm, 'interestForm' : interestForm, 'userForm': userForm, 'infoForm': infoForm}, )

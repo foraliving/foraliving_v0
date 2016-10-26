@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'pinax_theme_bootstrap',
     'bootstrapform',
     'metron',
+    # 'mptt',
 ]
 
 MIDDLEWARE_CLASSES = [

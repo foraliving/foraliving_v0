@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import User, Group
 from django.db import models
 from datetime import datetime    
+# from mptt.models import MPTTModel, TreeForeignKey
 
 class LMS(models.Model):
 	name = models.CharField(max_length=128)
@@ -49,9 +50,15 @@ class User_Add_Ons(models.Model):
 	def __unicode__(self):
 		return str(self.user)
 
+class Skill(models.Model):
+	name = models.CharField(max_length=25)
+
+class Interest(models.Model):
+	name = models.CharField(max_length=25)
+
 class Volunteer_User_Add_Ons(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	url = models.CharField(max_length=12)
+	phone = models.CharField(max_length=12, )
 	canGetText = models.BooleanField(default=True)
 	workTitle = models.CharField(max_length=25)
 	isBusinessOwner = models.BooleanField(default=True)
@@ -72,15 +79,21 @@ class Volunteer_User_Add_Ons(models.Model):
 		(5, "none"),)
 	collegeLevel = models.IntegerField(choices=hsGradChoices)
 	collegeMajor = models.CharField(max_length=128, null=True, blank=True, )
-	skills = 1;
-	interests = 1;
+	# skills = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True)
+	skills = models.ForeignKey(Skill, null=True, blank=True, )
+	# interests = TreeForeignKey('interest-self', null=True, blank=True, related_name='interest-children', db_index=True)
+	interests = models.ForeignKey(Interest, null=True, blank=True, )
+
+	# User_Skill_Map
+	# User_Interest_Map
 
 	class Meta:
 		verbose_name = 'Volunteer add-ons'
 		verbose_name_plural = 'Volunteer add-ons'
 
-	def __unicode__():
+	def __unicode__(self):
 		return "Volunteer: " + str(self.user)
+		# return "Volunteer: " 
 
 class User_Group_Role_Map(models.Model):
 	group = models.ForeignKey(Group) 
@@ -91,7 +104,7 @@ class User_Group_Role_Map(models.Model):
 		verbose_name = 'Role'
 		verbose_name_plural = 'Roles'
 
-	def __unicode__():
+	def __unicode__(self):
 		return str(self.group) + ': ' + str(self.user) + '-' + str(self.role)
 
 class Class(models.Model):
@@ -165,7 +178,7 @@ class Question_Video_Map(models.Model):
 		verbose_name = 'Video Question'
 		verbose_name_plural = 'Video Questions'
 
-	def __unicode__():
+	def __unicode__(self):
 		return str(self.question) + ':' + str(self.video)
 
 class Interview_Question_Video_Map(models.Model):
@@ -176,7 +189,7 @@ class Interview_Question_Video_Map(models.Model):
 		verbose_name = 'Interview Question Video'
 		verbose_name_plural = 'Interview Video Questions'
 
-	def __unicode__():
+	def __unicode__(self):
 		return str(self.interview_question) + '-' + str(self.video)
 
 class Video_Comment(models.Model):
